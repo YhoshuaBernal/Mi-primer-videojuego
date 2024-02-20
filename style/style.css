@@ -23,7 +23,7 @@ body {
   flex-direction: column;
   height: 80vh;
   width: 100%;
-
+  font-style: normal;
 }
 
 canvas {
