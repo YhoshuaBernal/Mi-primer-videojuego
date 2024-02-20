@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platzriv - Juego de bombas</title>
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+  <div class="messages">
+    <p>Vidas: <span id="lives"></span></p>
+    <p>Time: <span id="spantime"></span></p>
+  </div>
+  <div class="game-container">
+    <canvas id="game"></canvas>
+    <div>
+      <p>Record: <span id="record"></span></p>
+    </div>
+    <div class="btns">
+      <button id="up">↑</button>
+      <div>
+        <button id="left">←</button>
+        <button id="right">→</button>
+      </div>
+      <button id="down">↓</button>
+    </div>
+    
+  </div>
+
+  <div class="win-screen inactive">
+    <h1>Felicidades Completaste el juego</h1>
+    <img src="./assets/klipartz.com.png" alt="trofeo">
+    <p id="result"></p>
+    <a href="./index.html">Volver a Jugar</a>
+  </div>
+  <script src="./js/maps.js"></script>
+  <script src="./js/game.js"></script>
+</body>
+</html>

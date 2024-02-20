@@ -1,0 +1,102 @@
+body {
+  background-color: rgb(22, 21, 22);
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+.messages {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  width: 80%;
+  max-width: 460px;
+}
+
+.game-container {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  flex-direction: column;
+  height: 80vh;
+  width: 100%;
+
+}
+
+canvas {
+  border: 4px solid #ff6600;
+  border-radius: 8px;
+  background-color: #feff9d;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+.btns > div {
+  display: flex;
+  gap: 60px;
+}
+div > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d3491f;
+  border-color: transparent;
+  width: 60px;
+  height: 60px;
+  font-size: 2em;
+  margin: 0;
+}
+
+.win-screen {
+  position: absolute;
+  top: 0;
+  background-color: rgb(22, 21, 22);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+h1 {
+  width: 80%;
+  text-align: center;
+}
+img {
+  width: 50%;
+}
+
+p {
+  display: block;
+  margin: 0;
+}
+
+.repeat {
+  width: auto;
+}
+
+a {
+  padding: 20px;
+  background-color: #faeeee;
+  color: black;
+  text-decoration: none;
+}
+.inactive {
+  display: none;
+}
+@media (max-width: 440px) {
+  button {
+      margin-top: 25px;
+  }
+}
