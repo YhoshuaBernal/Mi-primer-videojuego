@@ -40,11 +40,17 @@ function setCanvasSize () {
   } else {
     canvasSize = window.innerWidth * .7
   }
+
+  canvasSize = canvasSize.toFixed(3)
+
   canvas.setAttribute("width", canvasSize)
   canvas.setAttribute("height", canvasSize)
 
   elementsSize = canvasSize / 10
   
+  player.x = undefined
+  player.y = undefined
+
   startGame()
 }
 
@@ -102,12 +108,6 @@ function movePLayer () {
   if (distance < collisionThreshold) {
     levelWin();
   }
-
-  // const giftCollision = player.x.toFixed(0) == giftPosition.x.toFixed(0) && player.y.toFixed(0) == giftPosition.y.toFixed(0)
-  
-  // if (giftCollision) {
-  //   levelWin()
-  // }
 
   const enemyCollision = enemiesPositions.find(enemy => {
     const enemyCollisionX = enemy.x == player.x.toFixed(0)

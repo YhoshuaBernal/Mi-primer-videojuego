@@ -58,17 +58,22 @@ div > button {
 
 .win-screen {
   position: absolute;
+  display: flex;
+  justify-content: center;
   top: 0;
   background-color: rgb(22, 21, 22);
   height: 100%;
   width: 100%;
+}
+
+.win-screen .elements-container {
+  max-width: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 40px;
 }
-
 h1 {
   width: 80%;
   text-align: center;
@@ -92,11 +97,23 @@ a {
   color: black;
   text-decoration: none;
 }
+
 .inactive {
   display: none;
 }
+
+.onlyMobile {
+  display: none;
+}
+
 @media (max-width: 440px) {
   button {
       margin-top: 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  .onlyMobile {
+    display: flex;
   }
 }
