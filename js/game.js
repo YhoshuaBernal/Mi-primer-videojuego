@@ -9,6 +9,7 @@ const spanLives = document.querySelector("#lives")
 const spanRecord = document.querySelector("#record")
 const pResult = document.querySelector("#result")
 const winScreen = document.querySelector(".win-screen")
+const heart = document.querySelector("#heart-break")
 
 let canvasSize
 let elementsSize
@@ -16,6 +17,8 @@ let timeStart
 let timeInterval 
 let level = 0
 let lives = 3
+let deadsPositions = {}
+
 const player = {
   x: undefined, 
   y: undefined, 
@@ -51,13 +54,16 @@ function setCanvasSize () {
   player.x = undefined
   player.y = undefined
 
+  heart.setAttribute("width", canvasSize / 2)
+  heart.style.top = (canvasSize / 3.5) + 'px';
+
   startGame()
 }
 
 function startGame() {
   clearMap()
   game.font = elementsSize + "px Verdana"
-  
+
   let map = maps[level]
   if (!map) {
     gameWin()
@@ -99,7 +105,11 @@ function startGame() {
     })
   });
   movePLayer()
+  printExplosion()
+
 }
+
+
 
 function movePLayer () {
   const distance = Math.sqrt((player.x - giftPosition.x) ** 2 + (player.y - giftPosition.y) ** 2);
@@ -128,6 +138,15 @@ function levelWin () {
 }
 
 function levelFails () {
+  if (!deadsPositions[level]) {
+    deadsPositions[level] = [];
+  }
+
+  deadsPositions[level].push({
+    x: player.x,
+    y: player.y,
+  });
+  
   lives--
   spanLives.innerHTML = emojis.HEART
   if (lives == 0) {
@@ -136,9 +155,27 @@ function levelFails () {
     lives = 3
     timeStart = undefined
   }
+
+  heart.style.opacity = 1;
+  canvas.style.opacity = .1;
+  
+  setTimeout(function() {
+    heart.style.opacity = 0;
+    canvas.style.opacity = 1;
+  }, 500);
+
   player.x = undefined
   player.y = undefined
   startGame()
+}
+
+function printExplosion() {
+  const levelPositions = deadsPositions[level];
+  if (levelPositions) {
+    levelPositions.forEach((element) => {
+      game.fillText(emojis["BOMB_COLLISION"], element.x, element.y);
+    });
+  }
 }
 
 function gameWin () {

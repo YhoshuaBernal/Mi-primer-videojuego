@@ -24,6 +24,13 @@ body {
   height: 80vh;
   width: 100%;
   font-style: normal;
+  position: relative;
+}
+
+#heart-break {
+  opacity: 0;
+  transition: opacity .3s ease;
+  position: absolute;
 }
 
 canvas {
@@ -78,7 +85,7 @@ h1 {
   width: 80%;
   text-align: center;
 }
-img {
+.trofeo {
   width: 50%;
 }
 
@@ -105,6 +112,8 @@ a {
 .onlyMobile {
   display: none;
 }
+
+
 
 @media (max-width: 440px) {
   button {
